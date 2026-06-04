@@ -1041,7 +1041,7 @@
                 <li>CAC/LTV logic</li>
                 <li>First experiments roadmap</li>
               </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Consumer apps, marketplaces, subscription products, healthtech, EdTech, and early mobile products.</p>
+              <p class="pkg-best"><strong>Best for:</strong> Consumer apps, marketplaces, subscription products, healthtech, edtech, and early mobile products.</p>
             </div>
           </details>
 
@@ -1063,7 +1063,7 @@
                 <li>Channel and budget prioritization</li>
                 <li>Launch roadmap</li>
               </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Teams entering Brazil, LATAM, Europe, or multilingual markets — especially consumer apps, marketplaces, subscriptions, EdTech, and healthtech.</p>
+              <p class="pkg-best"><strong>Best for:</strong> Teams entering Brazil, LATAM, Europe, or multilingual markets — especially consumer apps, marketplaces, subscriptions, edtech, and healthtech.</p>
             </div>
           </details>
 
@@ -1153,7 +1153,7 @@
 
         <div class="principle reveal">
           <h3>Most growth problems aren't marketing problems.</h3>
-          <p>They're positioning, product friction, or incentive problems. My job is to find the real constraint before spending a budget on the wrong one.</p>
+          <p>They're positioning, product friction, or incentive problems. My job is to find the real constraint before spending budget on the wrong one.</p>
         </div>
 
         <div class="principle reveal">
@@ -1199,7 +1199,7 @@
         <ul class="exp-points">
           <li>9× revenue growth in 2024, then 3× growth in 2025 over 2024</li>
           <li>Expanded to 17 Brazilian states and grew the partner network to 450+ stores</li>
-          <li>Surfaced and helped fix an app UX issue around delivery-date filtering that contributed to a ~40% increase in in-app revenue</li>
+          <li>Surfaced and helped fix an app UX issue around delivery-date filtering that lifted in-app revenue by ~40%</li>
           <li>Built localized positioning and tone that earned trust in a high-scam-perception market</li>
         </ul>
       </div>
@@ -1212,14 +1212,14 @@
           <li>4× reduction in CPA and 5× traffic growth</li>
           <li>Repositioned from a niche biohacking audience to mainstream wellbeing, expanding the addressable market roughly 5×</li>
           <li>Built the foundation for subscription revenue and lifecycle engagement</li>
-          <li>Led the work based on 40+ user interviews. Managed a team of 8 and 7 external agencies</li>
+          <li>Led the work based on 40+ user interviews. Managed a team of 8, plus 7 external agencies</li>
         </ul>
       </div>
 
       <div class="exp-block reveal">
         <h3 class="exp-role">Head of User Acquisition, DocDoc</h3>
         <p class="exp-date">Jul 2017 to Feb 2020 · Moscow</p>
-        <p class="exp-context">Largest MedTech platform in Russia for doctor search, booking, and telemedicine.</p>
+        <p class="exp-context">Largest medtech platform in Russia for doctor search, booking, and telemedicine.</p>
         <ul class="exp-points">
           <li>+30% LTV through cohort-based decision making and web-to-app optimization</li>
           <li>Turned the app into a meaningful new growth channel</li>
@@ -1332,7 +1332,7 @@
         <div class="looking-card reveal">
           <p class="looking-card-title">Stage & product</p>
           <ul class="looking-list">
-            <li>Early or scaling digital-product companies: marketplaces, subscriptions, consumer apps, healthtech, EdTech, AI.</li>
+            <li>Early or scaling digital-product companies: marketplaces, subscriptions, consumer apps, healthtech, edtech, AI.</li>
             <li>Products I can stand behind. Real outcomes for users, not physical goods or hype.</li>
             <li>A real product and team, credible enough to commit to for two to three years.</li>
           </ul>
@@ -1357,7 +1357,7 @@
 
       </div>
 
-      <p class="looking-format reveal">Open to full-time, fractional, and focused consulting. Remote-first, EU / WET (Lisbon, London).</p>
+      <p class="looking-format reveal">Open to full-time, fractional, and focused consulting. Remote-first, Western European time (Lisbon, London).</p>
     </div>
   </section>
 
@@ -1427,6 +1427,18 @@
       next.focus();
       activateTab(next);
     }
+
+    // ── Anchor scroll fix (smooth scroll suppressed by reveal observer) ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'instant' });
+        history.pushState(null, '', '#' + id);
+      });
+    });
 
     // ── Secondary nav: show after hero, highlight active section ──
     const sectionNav  = document.getElementById('section-nav');
