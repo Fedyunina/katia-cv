@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    Hand-built prototype, built with AI as the tool.
+    Single file, no build step, no frameworks, no npm.
+    If you're reading this: yes, I wrote it myself.
+    View source is part of the pitch.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katia Fediunina — Growth & Marketing Leader</title>
+  <meta name="description" content="Senior growth and marketing leader. 15+ years building and scaling consumer products. 0→1 launches, international expansion, and product growth across LATAM, Europe, and international markets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:       #111111;
+      --card-bg:     #191919;
+      --border:      rgba(255,255,255,0.08);
+      --white:       #F5F4F0;
+      --muted:       rgba(245,244,240,0.45);
+      --accent:      #F05A28;
+      --accent-dark: #CC4A1E;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    section { padding: 96px 0; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      background: rgba(17,17,17,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    /* ── Secondary section nav ── */
+    .section-nav {
+      position: fixed;
+      top: 57px;
+      left: 0; right: 0;
+      z-index: 99;
+      background: rgba(17,17,17,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+    .section-nav.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .section-nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .section-nav-inner::-webkit-scrollbar { display: none; }
+
+    .section-nav a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 14px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .section-nav a:hover { color: var(--white); }
+    .section-nav a.snav-active {
+      color: var(--white);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 152px 0 96px;
+    }
+    #hero.hero-tall { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+
+    .hero-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .hero-photo {
+      width: 88px;
+      min-width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #252525;
+      border: 2px solid rgba(245,244,240,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: rgba(245,244,240,0.55);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-spine {
+      font-size: 16px;
+      color: rgba(245,244,240,0.72);
+      max-width: 640px;
+      line-height: 1.65;
+      padding-top: 6px;
+    }
+    .hero-spine strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .role-switcher {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .role-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(245,244,240,0.18);
+      background: transparent;
+      color: rgba(245,244,240,0.45);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .role-btn:hover { border-color: rgba(245,244,240,0.5); color: var(--white); }
+    .role-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Per-tab content ── */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeUp 0.35s ease; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .tab-headline {
+      font-size: clamp(32px, 5vw, 62px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 860px;
+      margin-bottom: 18px;
+    }
+
+    .tab-subline {
+      font-size: clamp(14px, 1.7vw, 17px);
+      color: var(--muted);
+      max-width: 660px;
+      margin-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    .tab-statement {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(15px, 1.8vw, 19px);
+      font-weight: 600;
+      color: var(--accent);
+      max-width: 700px;
+      margin-bottom: 36px;
+      line-height: 1.45;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stat-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .stat-num.sm {
+      font-size: clamp(22px, 3vw, 32px);
+      letter-spacing: -0.02em;
+    }
+    .stat-num .accent { color: var(--accent); }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 34px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--muted);
+      font-size: 15px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.2s;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .btn-ghost:hover { color: var(--white); }
+
+    /* ── Consulting packages ── */
+    .consulting-section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      margin-top: 12px;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    details.pkg {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    details.pkg[open] { border-color: rgba(240,90,40,0.35); }
+
+    details.pkg summary {
+      padding: 20px 22px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+    details.pkg summary::-webkit-details-marker { display: none; }
+
+    .pkg-header { flex: 1; }
+
+    .pkg-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+    .pkg-best-short {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .pkg-icon {
+      font-size: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 1px;
+      transition: transform 0.2s;
+      font-style: normal;
+    }
+    details[open] .pkg-icon { transform: rotate(45deg); }
+
+    .pkg-body {
+      padding: 0 22px 22px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .pkg-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .pkg-output-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .pkg-list {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    .pkg-list li {
+      font-size: 13px;
+      color: rgba(245,244,240,0.7);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 5px;
+      line-height: 1.45;
+    }
+    .pkg-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 10px;
+      top: 3px;
+    }
+
+    .pkg-best {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      line-height: 1.5;
+      border-left: 2px solid rgba(240,90,40,0.3);
+    }
+    .pkg-best strong { color: rgba(245,244,240,0.65); font-weight: 500; }
+
+    /* ── AI section ── */
+    .ai-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      margin-bottom: 36px;
+    }
+    .ai-section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .ai-section p {
+      font-size: 14px;
+      color: rgba(245,244,240,0.78);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .ai-section p:last-child { margin-bottom: 0; color: rgba(245,244,240,0.55); font-style: italic; }
+    .ai-list {
+      list-style: none;
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .ai-list li {
+      font-size: 13px;
+      color: rgba(245,244,240,0.75);
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1px solid rgba(245,244,240,0.14);
+    }
+
+    /* ── Consulting CTA ── */
+    .consulting-cta {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      margin-top: 8px;
+    }
+    .consulting-cta-text {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    /* ── Divider ── */
+    .rule { height: 1px; background: var(--border); }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 48px;
+    }
+
+    /* ── Approach ── */
+    #approach { background: #0C0C0C; }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .principle {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.25s;
+    }
+    .principle:hover { border-color: rgba(240,90,40,0.28); }
+    .principle h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+    .principle p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .t-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .t-avatar {
+      width: 44px;
+      min-width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #252525;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(245,244,240,0.65);
+      overflow: hidden;
+    }
+    .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .t-meta { flex: 1; min-width: 0; }
+
+    .t-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .t-role {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .t-li-badge {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      color: rgba(245,244,240,0.25);
+      text-decoration: none;
+    }
+    .t-li-badge.linked { color: #5B9BD5; }
+    .t-li-badge svg { width: 14px; height: 14px; }
+
+    .t-quote {
+      font-size: 14px;
+      color: rgba(245,244,240,0.78);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .t-quote::before {
+      content: '"';
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    }
+
+    /* ── Experience ── */
+    .exp-block {
+      border-left: 2px solid rgba(245,244,240,0.1);
+      padding-left: 28px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .exp-block::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 7px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .exp-block:last-child { margin-bottom: 0; }
+    .exp-role {
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .exp-date { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+    .exp-context { font-size: 14px; color: rgba(245,244,240,0.55); margin-bottom: 18px; line-height: 1.6; }
+    .exp-points { list-style: none; }
+    .exp-points li {
+      font-size: 15px;
+      color: rgba(245,244,240,0.82);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 9px;
+      line-height: 1.55;
+    }
+    .exp-points li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 4px;
+    }
+
+    /* ── Skills ── */
+    #skills { background: #0C0C0C; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px 40px;
+    }
+
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 13px;
+      color: rgba(245,244,240,0.7);
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1px solid rgba(245,244,240,0.12);
+      line-height: 1;
+    }
+
+    .languages {
+      margin-top: 44px;
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .languages strong { color: rgba(245,244,240,0.72); font-weight: 500; }
+
+    /* ── Looking for ── */
+    #looking { background: #0C0C0C; }
+
+    .looking-intro {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .looking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .looking-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+    }
+
+    .looking-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .looking-list {
+      list-style: none;
+    }
+    .looking-list li {
+      font-size: 14px;
+      color: rgba(245,244,240,0.78);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 9px;
+      line-height: 1.55;
+    }
+    .looking-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 10px;
+      top: 4px;
+    }
+
+    .looking-format {
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Build proof ── */
+    #proof { padding: 56px 0; background: var(--accent); }
+    #proof .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .proof-copy {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 500;
+      color: #fff;
+      max-width: 700px;
+      line-height: 1.5;
+    }
+    .proof-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      white-space: nowrap;
+    }
+
+    /* ── Contact ── */
+    #contact { padding: 120px 0; text-align: center; }
+
+    .contact-headline {
+      font-size: clamp(28px, 4.5vw, 54px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 52px;
+    }
+
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--accent);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-linkedin:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: transparent;
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      border: 1.5px solid rgba(245,244,240,0.22);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: rgba(245,244,240,0.65); transform: translateY(-2px); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 24px 28px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(245,244,240,0.2);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      section { padding: 72px 0; }
+      #hero { padding: 120px 0 72px; min-height: auto !important; }
+
+      .hero-intro { flex-direction: column; gap: 16px; }
+      .hero-photo { width: 72px; min-width: 72px; height: 72px; font-size: 18px; }
+
+      .stats-row { grid-template-columns: 1fr; gap: 10px; }
+
+      .hero-ctas { flex-direction: column; align-items: flex-start; gap: 16px; }
+
+      .exp-block { padding-left: 20px; }
+
+      #contact { padding: 80px 0; }
+
+      .contact-btns { flex-direction: column; align-items: stretch; }
+      .btn-linkedin, .btn-outline { justify-content: center; width: 100%; }
+
+      #proof .container { flex-direction: column; }
+
+      .packages-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .principles-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-name">Katia Fediunina</a>
+    <a href="#contact" class="nav-cta">Let's talk</a>
+  </nav>
+
+  <nav class="section-nav" id="section-nav" aria-label="Page sections">
+    <div class="section-nav-inner">
+      <a href="#approach">How I work</a>
+      <a href="#testimonials">Recommendations</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#looking">Looking for</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero" class="hero-tall">
+    <div class="container">
+
+      <div class="hero-intro">
+        <div class="hero-photo"><img src="photo.jpeg" alt="Katia Fediunina"></div>
+        <p class="hero-spine">I'm Katia. I've personally run acquisition, product growth, positioning, lifecycle, and the economics underneath all of it. <strong>Four tabs, one person.</strong> I can see the whole growth system, find the real constraint, and fix it with a lean team. Pick the lens that matches what you're hiring for.</p>
+      </div>
+
+      <div class="role-switcher" role="tablist" aria-label="Role focus">
+        <button class="role-btn active" role="tab" aria-selected="true"  aria-controls="tab-marketing-leader"  data-tab="marketing-leader">Marketing Leader</button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-product-growth"    data-tab="product-growth">Product Growth</button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-user-acquisition"  data-tab="user-acquisition">User Acquisition</button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-consulting"        data-tab="consulting">Consulting</button>
+      </div>
+
+      <!-- Marketing Leader -->
+      <div class="tab-content active" id="tab-marketing-leader" role="tabpanel">
+        <h1 class="tab-headline">Marketing leader with 15+ years building and scaling consumer products.</h1>
+        <p class="tab-subline">I build growth systems across acquisition, positioning, product, content, PR, influencers, SEO, and lifecycle — with CAC/LTV discipline and strong cross-functional ownership.</p>
+        <p class="tab-statement">I connect marketing, product, and operations into one growth system — not isolated campaigns.</p>
+        <div class="stats-row">
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">9×</span></div>
+            <div class="stat-label">Revenue growth in Brazil in 2024</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">0<span class="accent">→</span>1</div>
+            <div class="stat-label">Brazil market and marketing function built from scratch</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">450+</span></div>
+            <div class="stat-label">Partner stores across 17 Brazilian states</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Let's talk</a>
+          <a href="#experience" class="btn-ghost">or see the work</a>
+        </div>
+      </div>
+
+      <!-- Product Growth -->
+      <div class="tab-content" id="tab-product-growth" role="tabpanel">
+        <h1 class="tab-headline">Product-growth leader who finds what actually blocks growth.</h1>
+        <p class="tab-subline">I work at the intersection of product, marketing, analytics, and user behavior — improving activation, conversion, retention, monetization, and market fit.</p>
+        <p class="tab-statement">I find the real constraint: positioning, activation, retention, monetization, or product friction. Then I fix it with the product team.</p>
+        <div class="stats-row">
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">~40%</span></div>
+            <div class="stat-label">In-app revenue lift after surfacing one UX friction</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">5×</span></div>
+            <div class="stat-label">Addressable audience expansion after repositioning</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">2M+</span></div>
+            <div class="stat-label">Installs, 150K MAU product scaled</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Let's talk</a>
+          <a href="#experience" class="btn-ghost">or see the work</a>
+        </div>
+      </div>
+
+      <!-- User Acquisition -->
+      <div class="tab-content" id="tab-user-acquisition" role="tabpanel">
+        <h1 class="tab-headline">User acquisition with cohort logic, LTV, and payback discipline.</h1>
+        <p class="tab-subline">I have scaled paid acquisition across Meta, Google, TikTok, Apple Search Ads, and other channels — but I don't treat volume as success unless the economics work.</p>
+        <p class="tab-statement">Performance with discipline: cohort logic, LTV, payback, and scalable acquisition — not vanity volume.</p>
+        <div class="stats-row">
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">4×</span></div>
+            <div class="stat-label">Lower CPA</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">5×</span></div>
+            <div class="stat-label">Traffic growth</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num"><span class="accent">+30%</span></div>
+            <div class="stat-label">LTV via web-to-app and cohort optimization</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Let's talk</a>
+          <a href="#experience" class="btn-ghost">or see the work</a>
+        </div>
+      </div>
+
+      <!-- Consulting -->
+      <div class="tab-content" id="tab-consulting" role="tabpanel">
+        <h1 class="tab-headline">Senior growth and marketing support for early teams.</h1>
+        <p class="tab-subline">I help founders and teams diagnose growth constraints, sharpen positioning, structure GTM, and turn messy marketing problems into clear priorities and experiments.</p>
+        <p class="tab-statement">Useful when you don't need another agency — you need senior judgment, structure, and a practical growth plan.</p>
+        <div class="stats-row">
+          <div class="stat-block">
+            <div class="stat-num sm"><span class="accent">1-2</span> clients</div>
+            <div class="stat-label">Limited consulting availability at a time</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num sm"><span class="accent">5-10h</span>/week</div>
+            <div class="stat-label">Typical support format</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num sm" style="color:var(--accent);">On request</div>
+            <div class="stat-label">Hourly or project-based pricing</div>
+          </div>
+        </div>
+
+        <p class="consulting-section-title">How I can help</p>
+
+        <div class="packages-grid">
+
+          <details class="pkg">
+            <summary>
+              <div class="pkg-header">
+                <p class="pkg-title">Growth Diagnosis Sprint</p>
+                <p class="pkg-best-short">For early teams with traction, but unclear growth constraints</p>
+              </div>
+              <i class="pkg-icon">+</i>
+            </summary>
+            <div class="pkg-body">
+              <p class="pkg-desc">I review your product, funnel, channels, positioning, metrics, and current assumptions to identify what is actually blocking growth.</p>
+              <p class="pkg-output-label">Typical output</p>
+              <ul class="pkg-list">
+                <li>Growth constraint diagnosis</li>
+                <li>Funnel and channel review</li>
+                <li>CAC/LTV and payback logic</li>
+                <li>Priority growth hypotheses</li>
+                <li>30/60/90-day action plan</li>
+              </ul>
+              <p class="pkg-best"><strong>Best for:</strong> Founders who know they need growth, but are not sure whether the problem is acquisition, positioning, product friction, monetization, or focus.</p>
+            </div>
+          </details>
+
+          <details class="pkg">
+            <summary>
+              <div class="pkg-header">
+                <p class="pkg-title">App Acquisition & Growth Strategy</p>
+                <p class="pkg-best-short">For teams that want to understand app acquisition before scaling spend</p>
+              </div>
+              <i class="pkg-icon">+</i>
+            </summary>
+            <div class="pkg-body">
+              <p class="pkg-desc">I help define which channels are worth testing, what metrics matter, what needs to be tracked, and how to approach acquisition without burning budget blindly.</p>
+              <p class="pkg-output-label">Typical output</p>
+              <ul class="pkg-list">
+                <li>Channel testing strategy</li>
+                <li>Measurement and analytics recommendations</li>
+                <li>Budget prioritization</li>
+                <li>Creative and audience hypotheses</li>
+                <li>CAC/LTV logic</li>
+                <li>First experiments roadmap</li>
+              </ul>
+              <p class="pkg-best"><strong>Best for:</strong> Consumer apps, marketplaces, subscription products, healthtech, EdTech, and early mobile products.</p>
+            </div>
+          </details>
+
+          <details class="pkg">
+            <summary>
+              <div class="pkg-header">
+                <p class="pkg-title">GTM / Market Entry Sprint</p>
+                <p class="pkg-best-short">For companies launching a new product, market, or geography</p>
+              </div>
+              <i class="pkg-icon">+</i>
+            </summary>
+            <div class="pkg-body">
+              <p class="pkg-desc">I help turn messy market context into a practical launch plan: ICP, positioning, local messaging, channel priorities, budget logic, and first experiments.</p>
+              <p class="pkg-output-label">Typical output</p>
+              <ul class="pkg-list">
+                <li>Market and competitor research</li>
+                <li>ICP and demand validation</li>
+                <li>Positioning and messaging adaptation</li>
+                <li>Channel and budget prioritization</li>
+                <li>Launch roadmap</li>
+              </ul>
+              <p class="pkg-best"><strong>Best for:</strong> Teams entering Brazil, LATAM, Europe, or multilingual markets — especially consumer apps, marketplaces, subscriptions, EdTech, and healthtech.</p>
+            </div>
+          </details>
+
+          <details class="pkg">
+            <summary>
+              <div class="pkg-header">
+                <p class="pkg-title">Product Growth & Funnel Sprint</p>
+                <p class="pkg-best-short">For products where acquisition is not the only problem</p>
+              </div>
+              <i class="pkg-icon">+</i>
+            </summary>
+            <div class="pkg-body">
+              <p class="pkg-desc">I review the user journey to identify where activation, conversion, retention, monetization, or trust breaks down — and turn those insights into product and growth experiments.</p>
+              <p class="pkg-output-label">Typical output</p>
+              <ul class="pkg-list">
+                <li>Activation and onboarding review</li>
+                <li>Conversion and retention friction map</li>
+                <li>User journey analysis</li>
+                <li>Experiment backlog</li>
+                <li>Product and marketing recommendations</li>
+              </ul>
+              <p class="pkg-best"><strong>Best for:</strong> Teams that suspect growth is blocked by UX, onboarding, positioning, monetization, lifecycle, or product-market fit.</p>
+            </div>
+          </details>
+
+          <details class="pkg">
+            <summary>
+              <div class="pkg-header">
+                <p class="pkg-title">Fractional Growth / Marketing Support</p>
+                <p class="pkg-best-short">For teams that need senior growth direction before hiring full-time</p>
+              </div>
+              <i class="pkg-icon">+</i>
+            </summary>
+            <div class="pkg-body">
+              <p class="pkg-desc">I can support strategy, prioritization, team and agency guidance, experiment planning, and cross-functional alignment across marketing, product, analytics, sales, and operations.</p>
+              <p class="pkg-output-label">Typical support</p>
+              <ul class="pkg-list">
+                <li>Weekly growth leadership support</li>
+                <li>Growth strategy and prioritization</li>
+                <li>Team or agency guidance</li>
+                <li>Experiment planning</li>
+                <li>Funnel and performance review</li>
+                <li>Product and marketing alignment</li>
+              </ul>
+              <p class="pkg-best"><strong>Best for:</strong> Founders and early teams that need experienced growth leadership without adding a permanent senior hire immediately.</p>
+            </div>
+          </details>
+
+        </div>
+
+        <div class="ai-section">
+          <p class="ai-section-title">AI / Growth Workflow Experiments</p>
+          <p>AI is part of how I work, not a separate offering. It lets one experienced operator cover ground that used to need a team: research, analysis, creative testing, reporting, and lightweight internal tools. I'm interested in projects where that covers a real problem.</p>
+          <ul class="ai-list">
+            <li>AI-assisted research workflows</li>
+            <li>Marketing automation prototypes</li>
+            <li>Creative testing workflows</li>
+            <li>Competitor or market intelligence systems</li>
+            <li>Growth reporting or insight extraction</li>
+            <li>Lightweight internal tools for marketing teams</li>
+          </ul>
+          <p>For the right project, I am open to a limited pilot, collaboration, or proof-of-concept format. It has to be useful, practical, and connected to a real business problem — not AI for the sake of AI.</p>
+        </div>
+
+        <div class="consulting-cta">
+          <p class="consulting-cta-text">Not sure what you need? Send me the context. I can usually tell after one conversation whether the problem is acquisition, positioning, product friction, monetization, or focus.</p>
+          <a href="#contact" class="btn-primary">Let's talk</a>
+        </div>
+
+      </div><!-- /consulting tab -->
+
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── How I work ── -->
+  <section id="approach">
+    <div class="container">
+      <p class="section-label">How I work</p>
+      <div class="principles-grid">
+
+        <div class="principle reveal">
+          <h3>Deep in one thing, useful across many.</h3>
+          <p>I go deep on growth economics: CAC, LTV, cohorts, payback. Around that core I work across product, positioning, lifecycle, content, PR, and operations. T-shaped on purpose.</p>
+        </div>
+
+        <div class="principle reveal">
+          <h3>Most growth problems aren't marketing problems.</h3>
+          <p>They're positioning, product friction, or incentive problems. My job is to find the real constraint before spending a budget on the wrong one.</p>
+        </div>
+
+        <div class="principle reveal">
+          <h3>Goals first, tactics second.</h3>
+          <p>My favorite question is "why?" If the goal, the success metric, and the outcome aren't clear, execution is just noise.</p>
+        </div>
+
+        <div class="principle reveal">
+          <h3>I do a lot with a lean team.</h3>
+          <p>I've built functions from scratch and run them without big headcount. I own outcomes, not just outputs, and I move across whatever needs to move.</p>
+        </div>
+
+        <div class="principle reveal">
+          <h3>AI as leverage, not decoration.</h3>
+          <p>AI removes the grunt work so I spend my time on judgment and prioritization. It's why one experienced person can now cover ground that used to need a team. This site is one small example: I built it myself with AI.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── Testimonials ── -->
+  <section id="testimonials">
+    <div class="container">
+      <p class="section-label">What colleagues say</p>
+      <div class="testimonials-grid" id="testimonials-grid"></div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── Experience ── -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Experience</p>
+
+      <div class="exp-block reveal">
+        <h3 class="exp-role">Head of Marketing, Flowwow Brasil</h3>
+        <p class="exp-date">Jun 2023 to Dec 2025 · Remote from Porto</p>
+        <p class="exp-context">Global marketplace active in 40+ countries. Hired to build and scale Brazil as a local market, with full ownership of growth, positioning, and market adaptation.</p>
+        <ul class="exp-points">
+          <li>9× revenue growth in 2024, then 3× growth in 2025 over 2024</li>
+          <li>Expanded to 17 Brazilian states and grew the partner network to 450+ stores</li>
+          <li>Surfaced and helped fix an app UX issue around delivery-date filtering that contributed to a ~40% increase in in-app revenue</li>
+          <li>Built localized positioning and tone that earned trust in a high-scam-perception market</li>
+        </ul>
+      </div>
+
+      <div class="exp-block reveal">
+        <h3 class="exp-role">Chief Marketing Officer, Ornament Health</h3>
+        <p class="exp-date">Feb 2020 to Aug 2022 · Remote</p>
+        <p class="exp-context">Digital health app, 2M+ installs and 150K MAU at peak. Built the growth function from scratch and expanded into positioning, monetization, and lifecycle.</p>
+        <ul class="exp-points">
+          <li>4× reduction in CPA and 5× traffic growth</li>
+          <li>Repositioned from a niche biohacking audience to mainstream wellbeing, expanding the addressable market roughly 5×</li>
+          <li>Built the foundation for subscription revenue and lifecycle engagement</li>
+          <li>Led the work off 40+ user interviews. Managed a team of 8 and 7 external agencies</li>
+        </ul>
+      </div>
+
+      <div class="exp-block reveal">
+        <h3 class="exp-role">Head of User Acquisition, DocDoc</h3>
+        <p class="exp-date">Jul 2017 to Feb 2020 · Moscow</p>
+        <p class="exp-context">Largest MedTech platform in Russia for doctor search, booking, and telemedicine.</p>
+        <ul class="exp-points">
+          <li>+30% LTV through cohort-based decision making and web-to-app optimization</li>
+          <li>Turned the app into a meaningful new growth channel</li>
+          <li>Built event-triggered lifecycle and push programs tied to user intent</li>
+          <li>Earlier mobile and digital roles drove 4M+ installs across paid and organic</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">What I'm strong at</p>
+      <div class="skills-grid">
+
+        <div class="reveal">
+          <p class="skill-group-title">Strategy & Growth</p>
+          <div class="skill-tags">
+            <span class="tag">0→1 launches</span>
+            <span class="tag">GTM</span>
+            <span class="tag">International expansion</span>
+            <span class="tag">Market prioritization</span>
+            <span class="tag">Category building</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="skill-group-title">Product Growth</p>
+          <div class="skill-tags">
+            <span class="tag">Positioning</span>
+            <span class="tag">Activation & onboarding</span>
+            <span class="tag">Funnel/CRO</span>
+            <span class="tag">Lifecycle & retention</span>
+            <span class="tag">Monetization & pricing</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="skill-group-title">Economics</p>
+          <div class="skill-tags">
+            <span class="tag">Unit economics</span>
+            <span class="tag">CAC/LTV</span>
+            <span class="tag">Cohort & payback analysis</span>
+            <span class="tag">Attribution</span>
+            <span class="tag">A/B testing</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="skill-group-title">Channels</p>
+          <div class="skill-tags">
+            <span class="tag">Meta</span>
+            <span class="tag">Google</span>
+            <span class="tag">Apple Search Ads</span>
+            <span class="tag">TikTok</span>
+            <span class="tag">ASO</span>
+            <span class="tag">SEO</span>
+            <span class="tag">CRM/push</span>
+            <span class="tag">Web-to-app</span>
+            <span class="tag">PR</span>
+            <span class="tag">Influencers</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="skill-group-title">Tools</p>
+          <div class="skill-tags">
+            <span class="tag">Adjust</span>
+            <span class="tag">AppsFlyer</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">GA4</span>
+            <span class="tag">RevenueCat</span>
+            <span class="tag">Figma</span>
+            <span class="tag">SQL with AI</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <p class="skill-group-title">AI Workflow</p>
+          <div class="skill-tags">
+            <span class="tag">Research & analysis with AI</span>
+            <span class="tag">Ideation with AI</span>
+            <span class="tag">Low-code prototypes</span>
+            <span class="tag">Vibecoding / landing page experiments</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="languages reveal">
+        <strong>Languages:</strong> Russian (native) &nbsp;·&nbsp; English (C1+) &nbsp;·&nbsp; Portuguese (C1+) &nbsp;·&nbsp; Spanish (working)
+      </p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ── What I'm looking for ── -->
+  <section id="looking">
+    <div class="container">
+      <p class="section-label">What I'm looking for</p>
+      <p class="looking-intro">I'm selective about where I go next. I do my best work when these line up.</p>
+
+      <div class="looking-grid">
+
+        <div class="looking-card reveal">
+          <p class="looking-card-title">Stage & product</p>
+          <ul class="looking-list">
+            <li>Early or scaling digital-product companies: marketplaces, subscriptions, consumer apps, healthtech, EdTech, AI.</li>
+            <li>Products I can stand behind. Real outcomes for users, not physical goods or hype.</li>
+            <li>A real product and team, credible enough to commit to for two to three years.</li>
+          </ul>
+        </div>
+
+        <div class="looking-card reveal">
+          <p class="looking-card-title">The problem & the role</p>
+          <ul class="looking-list">
+            <li>Genuine ownership of a growth system, not a single channel to execute.</li>
+            <li>0→1 or market expansion, where range and judgment matter more than headcount.</li>
+            <li>A lean setup where being T-shaped is an advantage, not a rounding error.</li>
+          </ul>
+        </div>
+
+        <div class="looking-card reveal">
+          <p class="looking-card-title">Market & language edge</p>
+          <ul class="looking-list">
+            <li>LATAM, Brazil, or Europe, where Portuguese, Spanish, and Russian plus localization are an asset.</li>
+            <li>International, flat, direct teams. Outcomes-led, not heavy top-down.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="looking-format reveal">Open to full-time, fractional, and focused consulting. Remote-first, EU / WET (Lisbon, London).</p>
+    </div>
+  </section>
+
+  <!-- ── Build proof ── -->
+  <section id="proof">
+    <div class="container">
+      <p class="proof-copy">This page is a prototype I built and shipped myself using AI. I treat landing pages and growth experiments the same way: build it, ship it, test it, learn.</p>
+      <p class="proof-tag">Vibecoded &amp; Shipped</p>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="contact-headline">Hiring for growth, marketing,<br>or market expansion?</h2>
+      <p class="contact-sub">Open to senior growth and marketing roles, fractional leadership, and focused consulting sprints.</p>
+      <div class="contact-btns">
+        <a href="https://www.linkedin.com/in/ekaterinafedyunina/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://t.me/KatyaF" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Telegram
+        </a>
+        <a href="mailto:katia.fediunina@gmail.com" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Katia Fediunina &nbsp;·&nbsp; Built with AI, shipped by hand
+  </footer>
+
+  <script>
+    // ── Role switcher ──
+    const roleBtns  = document.querySelectorAll('.role-btn');
+    const tabPanels = document.querySelectorAll('.tab-content');
+    const hero      = document.getElementById('hero');
+
+    roleBtns.forEach(btn => {
+      btn.addEventListener('click', () => activateTab(btn));
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateTab(btn); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); focusNextTab(btn, 1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); focusNextTab(btn, -1); }
+      });
+    });
+
+    function activateTab(btn) {
+      roleBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+      hero.classList.toggle('hero-tall', btn.dataset.tab !== 'consulting');
+    }
+
+    function focusNextTab(current, dir) {
+      const all = Array.from(roleBtns);
+      const idx = all.indexOf(current);
+      const next = all[(idx + dir + all.length) % all.length];
+      next.focus();
+      activateTab(next);
+    }
+
+    // ── Secondary nav: show after hero, highlight active section ──
+    const sectionNav  = document.getElementById('section-nav');
+    const sNavLinks   = sectionNav.querySelectorAll('a');
+
+    // Show/hide based on hero visibility
+    new IntersectionObserver(entries => {
+      sectionNav.classList.toggle('visible', !entries[0].isIntersecting);
+    }, { threshold: 0.1 }).observe(document.getElementById('hero'));
+
+    // Highlight active section
+    const sNavSections = ['approach','testimonials','experience','skills','looking'];
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          sNavLinks.forEach(a => a.classList.toggle('snav-active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' })
+    .observe && sNavSections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) sNavLinks.forEach(a => a.classList.toggle('snav-active', a.getAttribute('href') === '#' + e.target.id));
+        });
+      }, { threshold: 0.2, rootMargin: '-10% 0px -55% 0px' }).observe(el);
+    });
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+    // ── Testimonials data ──
+    const testimonials = [
+      {
+        name: "Andrey Makeev",
+        role: "CEO, Flowwow Brasil",
+        source: "Direct recommendation",
+        linkedinUrl: "",
+        photo: "andrey.jpg",
+        quote: "Katia is a highly responsible, thoughtful, and smart marketing specialist. We launched Flowwow in Brazil together and essentially built it from scratch — and the market continues to grow. Katia goes beyond pure marketing: she dives into product, operations, and every process that affects growth. It was very comfortable to work with her. A true professional."
+      },
+      {
+        name: "Dmitry Gurinenko",
+        role: "Co-founder, Ornament",
+        source: "LinkedIn recommendation",
+        linkedinUrl: "",
+        photo: "dmitry.png",
+        quote: "Katia combines strong product thinking, clear communication, and real ownership. She understands both the strategic direction of a product and the practical details needed to move it forward."
+      },
+      {
+        name: "Elina Sharifulina",
+        role: "Chief Medical Officer, Ornament",
+        source: "LinkedIn recommendation",
+        linkedinUrl: "",
+        photo: "elina.jpeg",
+        quote: "Katia demonstrated professionalism, strategic thinking, and strong execution. She understood both the medical context and the patient journey, and translated complex health concepts into clear, engaging, user-friendly communication. She aligned marketing strategy with clinical priorities, product development, and user needs."
+      },
+      {
+        name: "Darina Zotova",
+        role: "International PR Lead, Flowwow",
+        source: "LinkedIn recommendation",
+        linkedinUrl: "",
+        photo: "darina.jpeg",
+        quote: "Katia brought analytical thinking, deep market understanding, and strong business context to our PR work in Brazil. Her marketing and business insight helped turn PR ideas into stronger, data-backed stories."
+      },
+      {
+        name: "Daria Epifanova",
+        role: "CPO, DocDoc",
+        source: "LinkedIn recommendation",
+        linkedinUrl: "",
+        photo: "daria.jpeg",
+        quote: "Katia is a rare leader in the field of marketing who truly understands how a product and marketing should work together effectively. She thoroughly analyzes users' values and goals and knows how to translate them into a cohesive, coordinated strategy where marketing efforts align with users' actual needs. In addition, Katia not only thinks strategically but also has the skills to translate strategy into concrete actions that deliver results. I would highly recommend her to any team looking for a marketing director with a strong approach to marketing and product, strategic skills, and a real ability to execute."
+      },
+      {
+        name: "Rory Hyde",
+        role: "Content & SEO Manager, Storia Inc",
+        source: "LinkedIn recommendation",
+        linkedinUrl: "",
+        photo: "rory.jpeg",
+        quote: "Katia is a great marketer, organiser and people manager. As a marketing professional, she's insightful and innovative. She is able to command respect and spark curiosity when pitching or presenting both internally and to clients/external partners. As a people manager, she is caring and inspiring. Katia has a can-do attitude and believes in constant learning. She is great at building and maintaining relationships, which makes her an asset to any team she is a part of."
+      }
+    ];
+
+    const liSVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+
+    function getInitials(name) {
+      return name.split(' ').slice(0, 2).map(n => n[0]).join('').toUpperCase();
+    }
+
+    function renderTestimonials() {
+      const grid = document.getElementById('testimonials-grid');
+      testimonials.filter(t => t.quote.trim()).forEach(t => {
+        const isLI  = t.source === 'LinkedIn recommendation';
+        const hasLink = isLI && t.linkedinUrl;
+
+        const avatarInner = t.photo
+          ? `<img src="${t.photo}" alt="${t.name}" loading="lazy">`
+          : getInitials(t.name);
+
+        const liBadge = isLI
+          ? (hasLink
+              ? `<a href="${t.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="t-li-badge linked" title="View on LinkedIn">${liSVG}</a>`
+              : `<span class="t-li-badge" title="LinkedIn recommendation">${liSVG}</span>`)
+          : '';
+
+        const card = document.createElement('div');
+        card.className = 'testimonial-card reveal';
+        card.innerHTML = `
+          <div class="t-head">
+            <div class="t-avatar">${avatarInner}</div>
+            <div class="t-meta">
+              <p class="t-name">${t.name}</p>
+              <p class="t-role">${t.role}</p>
+            </div>
+            ${liBadge}
+          </div>
+          <p class="t-quote">${t.quote}</p>`;
+        grid.appendChild(card);
+        observer.observe(card);
+      });
+    }
+
+    renderTestimonials();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
