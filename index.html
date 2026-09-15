@@ -18,24 +18,24 @@
     gtag('config', 'G-PH1LK21BDD');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katia Fediunina — Growth & Marketing Leader</title>
-  <meta name="description" content="Senior growth and marketing leader. 15+ years building and scaling consumer products. 0→1 launches, international expansion, and product growth across LATAM, Europe, and international markets.">
+  <title>Katia Fediunina · Growth, Product and Analytics</title>
+  <meta name="description" content="Marketing, product and analytics in one person. 15+ years building consumer products in Brazil, LATAM, Europe and the CIS. I find what actually limits growth.">
 
   <!-- Link preview (LinkedIn, Slack, WhatsApp, X) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Katia Fediunina">
   <meta property="og:url" content="https://www.fediunina.com/">
-  <meta property="og:title" content="Katia Fediunina — Growth &amp; Marketing Leader">
-  <meta property="og:description" content="I take products from zero to real. Marketing, product, brand and analytics, connected into results, for lean teams moving fast. 15+ years across LATAM and Europe.">
-  <meta property="og:image" content="https://www.fediunina.com/og-image.png">
+  <meta property="og:title" content="Katia Fediunina · Growth, Product and Analytics">
+  <meta property="og:description" content="The work is translation: talking to users, turning that into what gets built, and turning that into numbers the business can act on. Market entry and product growth for global consumer products.">
+  <meta property="og:image" content="https://www.fediunina.com/og-image.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Katia Fediunina, growth and marketing leader. I take products from zero to real. 9x revenue growth, 0→1 markets, 2M+ installs.">
+  <meta property="og:image:alt" content="Katia Fediunina. Growth, product and analytics. 9x revenue growth in Brazil, markets built from zero, 2M+ installs.">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Katia Fediunina — Growth &amp; Marketing Leader">
-  <meta name="twitter:description" content="I take products from zero to real. Marketing, product, brand and analytics, connected into results, for lean teams moving fast.">
-  <meta name="twitter:image" content="https://www.fediunina.com/og-image.png">
+  <meta name="twitter:title" content="Katia Fediunina · Growth, Product and Analytics">
+  <meta name="twitter:description" content="The work is translation: users, into what gets built, into numbers the business can act on. Market entry and product growth for global consumer products.">
+  <meta name="twitter:image" content="https://www.fediunina.com/og-image.png?v=2">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -314,6 +314,13 @@
     }
     .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
+
+    .hero-ctas-direct {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
     .btn-ghost {
       color: var(--muted);
       font-size: 15px;
@@ -353,6 +360,12 @@
       transition: border-color 0.2s;
     }
     details.pkg[open] { border-color: rgba(240,90,40,0.35); }
+
+    details.pkg.pkg-featured {
+      border-color: rgba(240,90,40,0.35);
+      background: rgba(240,90,40,0.04);
+    }
+    details.pkg.pkg-featured .pkg-title { font-size: 16px; }
 
     details.pkg summary {
       padding: 20px 22px;
@@ -446,43 +459,6 @@
       border-left: 2px solid rgba(240,90,40,0.3);
     }
     .pkg-best strong { color: rgba(245,244,240,0.65); font-weight: 500; }
-
-    /* ── AI section ── */
-    .ai-section {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 26px;
-      margin-bottom: 36px;
-    }
-    .ai-section-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .ai-section p {
-      font-size: 14px;
-      color: rgba(245,244,240,0.78);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .ai-section p:last-child { margin-bottom: 0; color: rgba(245,244,240,0.55); font-style: italic; }
-    .ai-list {
-      list-style: none;
-      margin-bottom: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-    .ai-list li {
-      font-size: 13px;
-      color: rgba(245,244,240,0.75);
-      padding: 5px 13px;
-      border-radius: 100px;
-      border: 1px solid rgba(245,244,240,0.14);
-    }
 
     /* ── Consulting CTA ── */
     .consulting-cta {
@@ -908,21 +884,21 @@
 
       <div class="hero-intro">
         <div class="hero-photo"><img src="photo.jpeg" alt="Katia Fediunina"></div>
-        <p class="hero-spine">I'm Katia. I've personally run acquisition, product growth, positioning, lifecycle, and the economics underneath all of it. <strong>Four tabs, one person.</strong> I can see the whole growth system, find the real constraint, and fix it with a lean team. Pick the lens that matches what you're hiring for.</p>
+        <p class="hero-spine">I'm Katia. I've run acquisition, product growth, positioning and research myself, and the job underneath all of it is translation: from users, to what gets built, to numbers the business can act on. <strong>Four tabs, one person.</strong> Pick the lens that matches what you're hiring for.</p>
       </div>
 
       <div class="role-switcher" role="tablist" aria-label="Role focus">
-        <button class="role-btn active" role="tab" aria-selected="true"  aria-controls="tab-marketing-leader"  data-tab="marketing-leader">Marketing Leader</button>
-        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-product-growth"    data-tab="product-growth">Product Growth</button>
-        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-user-acquisition"  data-tab="user-acquisition">User Acquisition</button>
+        <button class="role-btn active" role="tab" aria-selected="true"  aria-controls="tab-marketing-leader"  data-tab="marketing-leader">Growth Leader</button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-product-growth"    data-tab="product-growth">Product and Positioning</button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-user-acquisition"  data-tab="user-acquisition">Performance Marketing</button>
         <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-consulting"        data-tab="consulting">Consulting</button>
       </div>
 
-      <!-- Marketing Leader -->
+      <!-- Growth Leader (internal key: marketing-leader) -->
       <div class="tab-content active" id="tab-marketing-leader" role="tabpanel">
-        <h1 class="tab-headline">Marketing leader with 15+ years building and scaling consumer products.</h1>
-        <p class="tab-subline">I build growth systems across acquisition, positioning, product, content, PR, influencers, SEO, and lifecycle — with CAC/LTV discipline and strong cross-functional ownership.</p>
-        <p class="tab-statement">I connect marketing, product, and operations into one growth system — not isolated campaigns.</p>
+        <h1 class="tab-headline">Marketing, product and analytics in one person.</h1>
+        <p class="tab-subline">I build growth systems across acquisition, positioning, product, content, PR, influencers, SEO and lifecycle, with CAC and LTV discipline underneath. The method is data-led: separate the hypotheses, test them in the cheapest order, keep what holds. And I work across the whole journey rather than one stage of it. When the result needs it I have been the tester, the product manager and the analyst — and when the thing in the way belongs to another team, a payment that fails or a front-end error, I go to product, sales, support or the developers, because what I own is the result.</p>
+        <p class="tab-statement">I connect marketing, product, and operations into results — not isolated campaigns.</p>
         <div class="stats-row">
           <div class="stat-block">
             <div class="stat-num"><span class="accent">9×</span></div>
@@ -945,21 +921,21 @@
 
       <!-- Product Growth -->
       <div class="tab-content" id="tab-product-growth" role="tabpanel">
-        <h2 class="tab-headline">Product-growth leader who finds what actually blocks growth.</h2>
-        <p class="tab-subline">I work at the intersection of product, marketing, analytics, and user behavior — improving activation, conversion, retention, monetization, and market fit.</p>
-        <p class="tab-statement">I find the real constraint: positioning, activation, retention, monetization, or product friction. Then I fix it with the product team.</p>
+        <h2 class="tab-headline">What people say is one source. I want three.</h2>
+        <p class="tab-subline">Interviews and UX research for what people tell me. Analytics for what they actually do. Market and competitor data to check both against the world. Where the three agree is where I decide what goes front stage in the positioning, what goes second, and what stays off the page — and sometimes the answer is not a message at all but a product fix.</p>
+        <p class="tab-statement">The work is connecting what the product actually means to someone with the story we tell about it.</p>
         <div class="stats-row">
           <div class="stat-block">
             <div class="stat-num"><span class="accent">~40%</span></div>
-            <div class="stat-label">In-app revenue lift after surfacing one UX friction</div>
+            <div class="stat-label">In-app revenue lift from one checkout fix, on a channel worth ~17% of total revenue</div>
           </div>
           <div class="stat-block">
             <div class="stat-num"><span class="accent">5×</span></div>
-            <div class="stat-label">Addressable audience expansion after repositioning</div>
+            <div class="stat-label">Users on the same budget, after repositioning from a niche audience to mainstream wellbeing</div>
           </div>
           <div class="stat-block">
-            <div class="stat-num"><span class="accent">2M+</span></div>
-            <div class="stat-label">Installs, 150K MAU product scaled</div>
+            <div class="stat-num"><span class="accent">40+</span></div>
+            <div class="stat-label">User interviews behind that call. The research is the method, not a slide</div>
           </div>
         </div>
         <div class="hero-ctas">
@@ -970,21 +946,21 @@
 
       <!-- User Acquisition -->
       <div class="tab-content" id="tab-user-acquisition" role="tabpanel">
-        <h2 class="tab-headline">User acquisition with cohort logic, LTV, and payback discipline.</h2>
-        <p class="tab-subline">I have scaled paid acquisition across Meta, Google, TikTok, Apple Search Ads, and other channels — but I don't treat volume as success unless the economics work.</p>
-        <p class="tab-statement">Performance with discipline: cohort logic, LTV, payback, and scalable acquisition — not vanity volume.</p>
+        <h2 class="tab-headline">Hands on with performance marketing.</h2>
+        <p class="tab-subline">Meta, TikTok, Google Ads, Apple Search Ads, Pinterest. App, web and web-to-app. SKAdNetwork and AEM. App Store and Google Play optimization, including screenshot testing. Writing the scripts and casting the actors myself. Cohort logic, LTV and payback discipline underneath all of it. This is the ground I know best, so it is where I start testing hypotheses myself: before I know who to hire, I find channel fit and message fit, then use that data to decide what the team should look like.</p>
+        <p class="tab-statement">Want someone senior who hasn't lost touch with attribution models and running campaigns? That's me.</p>
         <div class="stats-row">
           <div class="stat-block">
-            <div class="stat-num"><span class="accent">4×</span></div>
-            <div class="stat-label">Lower CPA</div>
+            <div class="stat-num"><span class="accent">EUR 300K</span></div>
+            <div class="stat-label">A month at peak, across markets</div>
           </div>
           <div class="stat-block">
-            <div class="stat-num"><span class="accent">5×</span></div>
-            <div class="stat-label">Traffic growth</div>
+            <div class="stat-num"><span class="accent">10×</span></div>
+            <div class="stat-label">Scaled in days inside one market, on one audience, for a peak season. The harder of the two</div>
           </div>
           <div class="stat-block">
-            <div class="stat-num"><span class="accent">+30%</span></div>
-            <div class="stat-label">LTV via web-to-app and cohort optimization</div>
+            <div class="stat-num"><span class="accent">+40%</span></div>
+            <div class="stat-label">in orders from the web-to-app journey, and +20% in revenue</div>
           </div>
         </div>
         <div class="hero-ctas">
@@ -995,159 +971,164 @@
 
       <!-- Consulting -->
       <div class="tab-content" id="tab-consulting" role="tabpanel">
-        <h2 class="tab-headline">Senior growth and marketing support for early teams.</h2>
-        <p class="tab-subline">I help founders and teams diagnose growth constraints, sharpen positioning, structure GTM, and turn messy marketing problems into clear priorities and experiments.</p>
-        <p class="tab-statement">Useful when you don't need another agency — you need senior judgment, structure, and a practical growth plan.</p>
+        <h2 class="tab-headline">For teams launching a product, and teams whose launch didn't land.</h2>
+        <p class="tab-subline">Five launches from zero, across marketplaces, digital health and consumer apps. I work best when there are more unknowns than answers, and I know which of the early decisions teams regret later.</p>
+        <p class="tab-statement">I enjoy helping companies get off the ground, and guiding them through the first decisions, the ones that are hardest to undo later.</p>
+
+        <div class="hero-ctas" style="margin-bottom:44px;">
+          <a href="#contact" class="btn-primary">Message me</a>
+          <span class="hero-ctas-direct">
+            <a href="https://www.linkedin.com/in/ekaterinafedyunina/" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+            <a href="https://t.me/KatyaF" target="_blank" rel="noopener noreferrer" class="btn-ghost">Telegram</a>
+            <a href="mailto:katia.fediunina@gmail.com" class="btn-ghost">Email</a>
+          </span>
+        </div>
+
+        <p class="consulting-section-title">What you're buying</p>
+        <div class="principles-grid" style="margin-bottom:44px;">
+
+          <div class="principle">
+            <h3>I have already made the early mistakes.</h3>
+            <p>Brazil for Flowwow, a new market run as its own unit: 9× revenue growth in 2024, 17 states, 450+ partner stores. Ornament Health, where I built the growth function from the ground up and repositioned the product from niche biohacking to mainstream wellbeing. DocDoc, launching the app and the telemedicine product as new channels. And earlier, two launches where there was no marketer senior to me on the team and I reported straight to the founders and investors — which is where most of the mistakes happened. Different products, the same shape of problem, and I know which of the early decisions cost the most to undo.</p>
+          </div>
+
+          <div class="principle">
+            <h3>Fewer expensive wrong calls.</h3>
+            <p>The decisions that cost real money at launch are the ones made without evidence: the wrong channel, the wrong price, the wrong first market, the wrong first country. Most of them can be checked before you pay for them.</p>
+          </div>
+
+          <div class="principle">
+            <h3>Positioning, and the story you tell.</h3>
+            <p>What the product is, who it is for, and the sentence that makes someone want it. Most launches are decided here, and it is usually the part nobody owns. It rarely lands on the first attempt, which is fine as long as you can tell.</p>
+          </div>
+
+          <div class="principle">
+            <h3>A launch that answers questions instead of raising them.</h3>
+            <p>I don't arrive with the answers about your business, and nobody has them before the market speaks. What I can do is make sure your customers give you those answers, and that the measurement is there to catch them. This is where teams have quiet regrets: the events nobody instrumented, so a year in you still cannot say why people buy, and the audiences nobody tagged at signup, so lifecycle marketing has nothing to segment on later.</p>
+          </div>
+
+          <div class="principle">
+            <h3>Room to be wrong, cheaply.</h3>
+            <p>Most products pivot after launch, a little or a lot. That is normal. What is expensive is not noticing. With the right data you find out in week three instead of month nine, and correct on the second try instead of the tenth.</p>
+          </div>
+
+        </div>
+
         <div class="stats-row">
           <div class="stat-block">
             <div class="stat-num sm"><span class="accent">1-2</span> clients</div>
             <div class="stat-label">Limited consulting availability at a time</div>
           </div>
           <div class="stat-block">
-            <div class="stat-num sm"><span class="accent">5-10h</span>/week</div>
-            <div class="stat-label">Typical support format</div>
+            <div class="stat-num sm"><span class="accent">up to 15h</span>/week</div>
+            <div class="stat-label">Typical weekly commitment</div>
           </div>
           <div class="stat-block">
-            <div class="stat-num sm" style="color:var(--accent);">On request</div>
-            <div class="stat-label">Hourly or project-based pricing</div>
+            <div class="stat-num sm" style="color:var(--accent);">Free</div>
+            <div class="stat-label">20-30 min intro call, once we have said hello</div>
           </div>
         </div>
 
-        <p class="consulting-section-title">How I can help</p>
+        <p class="consulting-section-title">Where I come in</p>
 
-        <div class="packages-grid">
+        <div class="packages-grid" style="grid-template-columns: 1fr;">
 
-          <details class="pkg">
+          <details class="pkg pkg-featured" open>
             <summary>
               <div class="pkg-header">
-                <p class="pkg-title">Growth Diagnosis Sprint</p>
-                <p class="pkg-best-short">For early teams with traction, but unclear growth constraints</p>
+                <p class="pkg-title">Pre-Launch Growth Plan</p>
+                <p class="pkg-best-short">Best started 2-4 months before launch. For a first launch, or an existing product entering a new country.</p>
               </div>
               <i class="pkg-icon">+</i>
             </summary>
             <div class="pkg-body">
-              <p class="pkg-desc">I review your product, funnel, channels, positioning, metrics, and current assumptions to identify what is actually blocking growth.</p>
-              <p class="pkg-output-label">Typical output</p>
+              <p class="pkg-desc">We settle what you are launching, who it is for, and how you will know whether it worked, while those answers are still cheap to change. The chain runs all the way through: audiences, what we assume each one wants, the hypothesis that tests it, the channel that audience is actually on, the copy they will see, and the measurement that records the result.</p>
+              <p class="pkg-output-label">How it runs</p>
               <ul class="pkg-list">
-                <li>Growth constraint diagnosis</li>
-                <li>Funnel and channel review</li>
-                <li>CAC/LTV and payback logic</li>
-                <li>Priority growth hypotheses</li>
-                <li>30/60/90-day action plan</li>
+                <li>I read everything you already have: ICP notes, tone of voice, prior research, analytics, whatever exists</li>
+                <li>I do my own work on the product, the competitors and the market, and go through your app or site the way a first-time user would</li>
+                <li>Three to eight hours of calls with you and whoever else holds the answers</li>
+                <li>Then the plan, and one round of changes with you</li>
               </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Founders who know they need growth, but are not sure whether the problem is acquisition, positioning, product friction, monetization, or focus.</p>
+              <p class="pkg-output-label">What you get</p>
+              <ul class="pkg-list">
+                <li>Landing page and app store copy, written and ready for your team to publish</li>
+                <li>An analytics and event plan across the whole user journey, and verification of what is actually firing once your team has shipped it</li>
+                <li>The audiences, the promise that goes first for each, and the arithmetic on who can afford your price</li>
+                <li>Every variable worth testing, ranked, each with the test that settles it</li>
+                <li>A launch sequence: what goes live first, usually PR, organic and social, and what waits until the tracking can be trusted, usually paid</li>
+                <li>Channel shortlist with the reasoning: performance, influencers, SMM, SEO and GenAI search visibility, ASO, PR</li>
+                <li>Unit economics: CAC, payback, and what has to be true before you scale spend</li>
+                <li>A playbook for reading the results: what a good number looks like, and what to do when it isn't one</li>
+              </ul>
+              <p class="pkg-best" style="margin-bottom:10px;"><strong>What I need from you:</strong> the documents and research you already have, access to analytics, ad accounts and store consoles, and the founder hours above. I write and specify, your team ships. Publishing and release dates follow your release cycle, not mine.</p>
+              <p class="pkg-best"><strong>Best for:</strong> Founders two to four months out from launch, and teams taking a working product into a new market or language. If you want me to stay through the first tests, that is the fractional option below.</p>
             </div>
           </details>
 
-          <details class="pkg">
+          <details class="pkg pkg-featured" open>
             <summary>
               <div class="pkg-header">
-                <p class="pkg-title">App Acquisition & Growth Strategy</p>
-                <p class="pkg-best-short">For teams that want to understand app acquisition before scaling spend</p>
+                <p class="pkg-title">Post-Launch Audit</p>
+                <p class="pkg-best-short">Technically live, but people don't install, don't pay, and don't come back.</p>
               </div>
               <i class="pkg-icon">+</i>
             </summary>
             <div class="pkg-body">
-              <p class="pkg-desc">I help define which channels are worth testing, what metrics matter, what needs to be tracked, and how to approach acquisition without burning budget blindly.</p>
-              <p class="pkg-output-label">Typical output</p>
+              <p class="pkg-desc">The product is live and the numbers say nothing good. Installs don't come, users don't pay, or they pay once and never return, and the unit economics are nowhere near where they need to be. Either you don't know what to do next, or you know twenty things to do and have the resources for three. Normally one of four things is wrong: the positioning, the channel, the product, or the measurement telling you about the other three.</p>
+              <p class="pkg-output-label">How it runs</p>
               <ul class="pkg-list">
-                <li>Channel testing strategy</li>
-                <li>Measurement and analytics recommendations</li>
-                <li>Budget prioritization</li>
-                <li>Creative and audience hypotheses</li>
-                <li>CAC/LTV logic</li>
-                <li>First experiments roadmap</li>
+                <li>I go through your analytics, funnel, ad accounts, store listings and creative myself</li>
+                <li>Two to four hours of calls with the people who know the history</li>
+                <li>Then the audit, and a call to walk you through it</li>
               </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Consumer apps, marketplaces, subscription products, healthtech, edtech, and early mobile products.</p>
-            </div>
-          </details>
-
-          <details class="pkg">
-            <summary>
-              <div class="pkg-header">
-                <p class="pkg-title">GTM / Market Entry Sprint</p>
-                <p class="pkg-best-short">For companies launching a new product, market, or geography</p>
-              </div>
-              <i class="pkg-icon">+</i>
-            </summary>
-            <div class="pkg-body">
-              <p class="pkg-desc">I help turn messy market context into a practical launch plan: ICP, positioning, local messaging, channel priorities, budget logic, and first experiments.</p>
-              <p class="pkg-output-label">Typical output</p>
+              <p class="pkg-output-label">What you get</p>
               <ul class="pkg-list">
-                <li>Market and competitor research</li>
-                <li>ICP and demand validation</li>
-                <li>Positioning and messaging adaptation</li>
-                <li>Channel and budget prioritization</li>
-                <li>Launch roadmap</li>
+                <li>Which of the four is actually broken, and the evidence for it</li>
+                <li>Funnel and cohort review: where users leave, and what that costs you</li>
+                <li>Channel fit: which channels can work at your price, and which never will</li>
+                <li>Analytics audit: whether the numbers you are deciding on can be trusted</li>
+                <li>Product-market fit read, based on what users do rather than what they say</li>
+                <li>Unit economics: the real distance between today and break-even</li>
+                <li>A prioritised fix list, including what to stop paying for</li>
               </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Teams entering Brazil, LATAM, Europe, or multilingual markets — especially consumer apps, marketplaces, subscriptions, edtech, and healthtech.</p>
-            </div>
-          </details>
-
-          <details class="pkg">
-            <summary>
-              <div class="pkg-header">
-                <p class="pkg-title">Product Growth & Funnel Sprint</p>
-                <p class="pkg-best-short">For products where acquisition is not the only problem</p>
-              </div>
-              <i class="pkg-icon">+</i>
-            </summary>
-            <div class="pkg-body">
-              <p class="pkg-desc">I review the user journey to identify where activation, conversion, retention, monetization, or trust breaks down — and turn those insights into product and growth experiments.</p>
-              <p class="pkg-output-label">Typical output</p>
-              <ul class="pkg-list">
-                <li>Activation and onboarding review</li>
-                <li>Conversion and retention friction map</li>
-                <li>User journey analysis</li>
-                <li>Experiment backlog</li>
-                <li>Product and marketing recommendations</li>
-              </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Teams that suspect growth is blocked by UX, onboarding, positioning, monetization, lifecycle, or product-market fit.</p>
-            </div>
-          </details>
-
-          <details class="pkg">
-            <summary>
-              <div class="pkg-header">
-                <p class="pkg-title">Fractional Growth / Marketing Support</p>
-                <p class="pkg-best-short">For teams that need senior growth direction before hiring full-time</p>
-              </div>
-              <i class="pkg-icon">+</i>
-            </summary>
-            <div class="pkg-body">
-              <p class="pkg-desc">I can support strategy, prioritization, team and agency guidance, experiment planning, and cross-functional alignment across marketing, product, analytics, sales, and operations.</p>
-              <p class="pkg-output-label">Typical support</p>
-              <ul class="pkg-list">
-                <li>Weekly growth leadership support</li>
-                <li>Growth strategy and prioritization</li>
-                <li>Team or agency guidance</li>
-                <li>Experiment planning</li>
-                <li>Funnel and performance review</li>
-                <li>Product and marketing alignment</li>
-              </ul>
-              <p class="pkg-best"><strong>Best for:</strong> Founders and early teams that need experienced growth leadership without adding a permanent senior hire immediately.</p>
+              <p class="pkg-best" style="margin-bottom:10px;"><strong>What I need from you:</strong> read access to analytics, ad accounts and store consoles, whatever research exists, and a few hours from the people who were there. If the tracking is broken I will show you exactly where. Fixing it is your engineers' job, and re-releasing follows their cycle.</p>
+              <p class="pkg-best"><strong>Best for:</strong> Early-stage teams after launch with CAC above LTV, no repeatable channel yet, and no clear read on whether the product has found its market. If you want me to stay through the fixes, that is the fractional option below.</p>
             </div>
           </details>
 
         </div>
 
-        <div class="ai-section">
-          <p class="ai-section-title">AI / Growth Workflow Experiments</p>
-          <p>AI is part of how I work, not a separate offering. It lets one experienced operator cover ground that used to need a team: research, analysis, creative testing, reporting, and lightweight internal tools. I'm interested in projects where that covers a real problem.</p>
-          <ul class="ai-list">
-            <li>AI-assisted research workflows</li>
-            <li>Marketing automation prototypes</li>
-            <li>Creative testing workflows</li>
-            <li>Competitor or market intelligence systems</li>
-            <li>Growth reporting or insight extraction</li>
-            <li>Lightweight internal tools for marketing teams</li>
-          </ul>
-          <p>For the right project, I am open to a limited pilot, collaboration, or proof-of-concept format. It has to be useful, practical, and connected to a real business problem — not AI for the sake of AI.</p>
+        <p class="consulting-section-title">Also available</p>
+        <ul class="pkg-list" style="margin-bottom:40px;">
+          <li>Fractional growth and marketing support, for teams that want me to stay through the tests, or that need senior direction before hiring full time.</li>
+          <li>A focused piece of work on one question: acquisition, funnel, analytics, positioning, or a specific market.</li>
+          <li>Work in Portuguese, Spanish, English or Russian, including Brazil and LATAM launches.</li>
+        </ul>
+
+        <p class="consulting-section-title">How I work</p>
+        <div class="principles-grid" style="margin-bottom:8px;">
+
+          <div class="principle">
+            <h3>I read before I recommend.</h3>
+            <p>Your positioning docs, your analytics, whatever research already exists. I ask a lot of questions early. Guessing at your business on my own time is not a service.</p>
+          </div>
+
+          <div class="principle">
+            <h3>We agree what success means before we start.</h3>
+            <p>In writing, so that afterwards we can both tell whether we got there.</p>
+          </div>
+
+          <div class="principle">
+            <h3>If your money is better spent elsewhere, I will say so.</h3>
+            <p>Including when the answer is to spend less than you asked me to quote for.</p>
+          </div>
+
         </div>
 
         <div class="consulting-cta">
-          <p class="consulting-cta-text">Not sure what you need? Send me the context. I can usually tell after one conversation whether the problem is acquisition, positioning, product friction, monetization, or focus.</p>
-          <a href="#contact" class="btn-primary">Let's talk</a>
+          <p class="consulting-cta-text">Start with a message. Tell me where the product is and what is worrying you, and I will tell you whether it is a problem I can help with. If it is, we take twenty to thirty minutes on a call, free, no deck. Everything after that is paid work, scoped and priced before it starts.</p>
+          <a href="#contact" class="btn-primary">Message me</a>
         </div>
 
       </div><!-- /consulting tab -->
@@ -1175,17 +1156,22 @@
 
         <div class="principle reveal">
           <h3>Goals first, tactics second.</h3>
-          <p>My favorite question is "why?" If the goal, the success metric, and the outcome aren't clear, execution is just noise.</p>
+          <p>Before a feature or a channel test I want the success metric agreed: what we are looking for, what we will test, what counts as a good result, and what is not good enough. It is asking why several times before anyone builds anything. Skip it and you settle for results that look fine and bring no more money, no more returning users, and no more use of the product.</p>
         </div>
 
         <div class="principle reveal">
-          <h3>I do a lot with a lean team.</h3>
-          <p>I've built functions from scratch and run them without big headcount. I own outcomes, not just outputs, and I move across whatever needs to move.</p>
+          <h3>At zero there is no data and no playbook.</h3>
+          <p>Only hypotheses to test and uncertainties to reveal. So you stay open to changing your mind, and you move quickly — not because speed is a virtue in itself, but because the faster you test, the sooner you actually know where to go. At the start, certainty is something you earn by moving, not something you have before you begin.</p>
         </div>
 
         <div class="principle reveal">
-          <h3>AI as leverage, not decoration.</h3>
-          <p>AI removes the grunt work so I spend my time on judgment and prioritization. It's why one experienced person can now cover ground that used to need a team. This site is one small example: I built it myself with AI.</p>
+          <h3>I do the work, and I hire when the work needs it.</h3>
+          <p>I have started as an individual contributor more than once and I am comfortable as a player-coach. I build functions without big headcount, manage when there are enough people to manage, and I do not hire to look senior. AI has moved that line further out: more gets done with fewer people and less time, and the judgement calls are still mine. This site is one small example — I built it myself, with AI.</p>
+        </div>
+
+        <div class="principle reveal">
+          <h3>I'll take the risk when the data isn't coming.</h3>
+          <p>I measure everything that can be measured, and I estimate the rest: how much goes unattributed, and where the untraceable demand went. But there is always uncertainty, and sometimes the data is never going to arrive — too few users for a test that would mean anything. Then I decide. I push the uncertainty down as far as every available tool will take it, I say plainly what I am not sure about, and I move. Growth is not a guarantee business, and waiting for certainty costs more than being wrong early.</p>
         </div>
 
       </div>
@@ -1216,7 +1202,8 @@
         <ul class="exp-points">
           <li>9× revenue growth in 2024, then 3× growth in 2025 over 2024</li>
           <li>Expanded to 17 Brazilian states and grew the partner network to 450+ stores</li>
-          <li>Surfaced and helped fix an app UX issue around delivery-date filtering that lifted in-app revenue by ~40%</li>
+          <li>Surfaced and helped fix an app UX issue around delivery-date filtering that lifted in-app revenue by ~40%, on a channel worth about 17% of total revenue</li>
+          <li>Recruited research participants who had actually bought flowers online in the previous six months, then built creative from the language of the heaviest buyers rather than from a brief</li>
           <li>Built localized positioning and tone that earned trust in a high-scam-perception market</li>
         </ul>
       </div>
@@ -1226,10 +1213,11 @@
         <p class="exp-date">Feb 2020 to Aug 2022 · Remote</p>
         <p class="exp-context">Digital health app, 2M+ installs and 150K MAU at peak. Built the growth function from scratch and expanded into positioning, monetization, and lifecycle.</p>
         <ul class="exp-points">
-          <li>4× reduction in CPA and 5× traffic growth</li>
-          <li>Repositioned from a niche biohacking audience to mainstream wellbeing, expanding the addressable market roughly 5×</li>
+          <li>Found the first audience by interviewing the heaviest users. When that audience ran out, switched to people who had never used the product and people who dropped off — and that switch is what produced the repositioning, from a niche audience (biohackers, pregnancy, chronic conditions) to mainstream wellbeing</li>
+          <li>Same budget, 5× the users and a 4× reduction in CPA</li>
+          <li>When Apple's tracking rules changed, worked with the product team on the opt-in onboarding screen, because the quality of every marketing number now depended on a product surface I did not own</li>
           <li>Built the foundation for subscription revenue and lifecycle engagement</li>
-          <li>Led the work based on 40+ user interviews. Managed a team of 8, plus 7 external agencies</li>
+          <li>Led the work based on 40+ user interviews. Managed a team of seven plus a freelancer, and four external agencies</li>
         </ul>
       </div>
 
@@ -1238,9 +1226,9 @@
         <p class="exp-date">Jul 2017 to Feb 2020 · Moscow</p>
         <p class="exp-context">Largest medtech platform in Russia for doctor search, booking, and telemedicine.</p>
         <ul class="exp-points">
-          <li>+30% LTV through cohort-based decision making and web-to-app optimization</li>
-          <li>Turned the app into a meaningful new growth channel</li>
-          <li>Built event-triggered lifecycle and push programs tied to user intent</li>
+          <li>+40% in orders and +20% in revenue through cohort-based decision making and web-to-app optimization</li>
+          <li>Ran brand campaigns with no install link, to measure the demand no ad platform reports. A large share of installs came from people who never clicked and searched the app by name instead — checked against our own booking records</li>
+          <li>Built the lifecycle and push programme, including an abandoned-search trigger measured against a held-out control group. It deliberately never named the specialty someone had searched for: it is a person's health, and being able to see something is not a reason to say it</li>
           <li>Earlier mobile and digital roles drove 4M+ installs across paid and organic</li>
         </ul>
       </div>
@@ -1275,6 +1263,7 @@
             <span class="tag">Funnel/CRO</span>
             <span class="tag">Lifecycle & retention</span>
             <span class="tag">Monetization & pricing</span>
+            <span class="tag">User research & discovery interviews</span>
           </div>
         </div>
 
@@ -1285,6 +1274,8 @@
             <span class="tag">CAC/LTV</span>
             <span class="tag">Cohort & payback analysis</span>
             <span class="tag">Attribution</span>
+            <span class="tag">Modelled vs observed</span>
+            <span class="tag">Server-side conversion events</span>
             <span class="tag">A/B testing</span>
           </div>
         </div>
@@ -1313,6 +1304,12 @@
             <span class="tag">Firebase</span>
             <span class="tag">GA4</span>
             <span class="tag">RevenueCat</span>
+            <span class="tag">Branch</span>
+            <span class="tag">OneSignal</span>
+            <span class="tag">Apptweak</span>
+            <span class="tag">AppFollow</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Confluence</span>
             <span class="tag">Figma</span>
             <span class="tag">SQL with AI</span>
           </div>
@@ -1331,7 +1328,7 @@
       </div>
 
       <p class="languages reveal">
-        <strong>Languages:</strong> Russian (native) &nbsp;·&nbsp; English (C1+) &nbsp;·&nbsp; Portuguese (C1+) &nbsp;·&nbsp; Spanish (working)
+        <strong>Languages:</strong> English (C1+) &nbsp;·&nbsp; Portuguese (C1+) &nbsp;·&nbsp; Russian (native) &nbsp;·&nbsp; Spanish (working)
       </p>
     </div>
   </section>
@@ -1350,6 +1347,7 @@
           <p class="looking-card-title">Stage & product</p>
           <ul class="looking-list">
             <li>Early or scaling digital-product companies: marketplaces, subscriptions, consumer apps, healthtech, edtech, AI.</li>
+            <li>Size is not the criterion. The shape I have done most often is thirty to eighty people, with revenue and a recent raise, about to open a new market. But five people with a good idea and a founder worth thinking with works too, and so does a new line of business inside a larger company.</li>
             <li>Products I can stand behind. Real outcomes for users, not physical goods or hype.</li>
             <li>A real product and team, credible enough to commit to for two to three years.</li>
           </ul>
@@ -1359,6 +1357,7 @@
           <p class="looking-card-title">The problem & the role</p>
           <ul class="looking-list">
             <li>Genuine ownership of a growth system, not a single channel to execute.</li>
+            <li>Authority over the model itself: pricing, segment, packaging, positioning, what gets built. Not the budget to buy traffic for someone else's model.</li>
             <li>0→1 or market expansion, where range and judgment matter more than headcount.</li>
             <li>A lean setup where being T-shaped is an advantage, not a rounding error.</li>
           </ul>
@@ -1389,8 +1388,8 @@
   <!-- ── Contact ── -->
   <section id="contact">
     <div class="container">
-      <h2 class="contact-headline">Hiring for growth, marketing,<br>or market expansion?</h2>
-      <p class="contact-sub">Open to senior growth and marketing roles, fractional leadership, and focused consulting sprints.</p>
+      <h2 class="contact-headline">Hiring for growth, product,<br>or market expansion?</h2>
+      <p class="contact-sub">Open to senior growth and product roles where the market or the line of business does not exist yet, plus fractional leadership and focused consulting sprints.</p>
       <div class="contact-btns">
         <a href="https://www.linkedin.com/in/ekaterinafedyunina/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
