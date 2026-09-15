@@ -833,9 +833,42 @@
     /* ── Responsive ── */
     @media (max-width: 680px) {
       section { padding: 72px 0; }
+
+      /* Section nav wraps to two rows instead of scrolling sideways,
+         so a first-time visitor can see every section without guessing. */
+      html { scroll-padding-top: 132px; }
+      .section-nav-inner {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: center;
+        padding: 2px 12px 4px;
+        row-gap: 0;
+      }
+      .section-nav a {
+        font-size: 12.5px;
+        padding: 7px 11px;
+      }
       #hero { padding: 120px 0 72px; min-height: auto !important; }
 
       .hero-intro { flex-direction: column; gap: 16px; }
+
+      /* Tab pills as an even 2x2 grid instead of a ragged 1/1/2 wrap. */
+      .role-switcher {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .role-btn {
+        width: 100%;
+        padding: 10px 6px;
+        font-size: 13px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.25;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       .hero-photo { width: 72px; min-width: 72px; height: 72px; font-size: 18px; }
 
       .stats-row { grid-template-columns: 1fr; gap: 10px; }
@@ -946,7 +979,7 @@
 
       <!-- User Acquisition -->
       <div class="tab-content" id="tab-user-acquisition" role="tabpanel">
-        <h2 class="tab-headline">Hands on with performance marketing.</h2>
+        <h2 class="tab-headline">Hands-on with performance marketing.</h2>
         <p class="tab-subline">Meta, TikTok, Google Ads, Apple Search Ads, Pinterest. App, web and web-to-app. SKAdNetwork and AEM. App Store and Google Play optimization, including screenshot testing. Writing the scripts and casting the actors myself. Cohort logic, LTV and payback discipline underneath all of it. This is the ground I know best, so it is where I start testing hypotheses myself: before I know who to hire, I find channel fit and message fit, then use that data to decide what the team should look like.</p>
         <p class="tab-statement">Want someone senior who hasn't lost touch with attribution models and running campaigns? That's me.</p>
         <div class="stats-row">
@@ -1328,7 +1361,7 @@
       </div>
 
       <p class="languages reveal">
-        <strong>Languages:</strong> English (C1+) &nbsp;·&nbsp; Portuguese (C1+) &nbsp;·&nbsp; Russian (native) &nbsp;·&nbsp; Spanish (working)
+        <strong>Languages:</strong> English (first language of my translation degree; my working language since I started) &nbsp;·&nbsp; Portuguese (C1, DAPLE certified; worked in it daily) &nbsp;·&nbsp; Russian (native) &nbsp;·&nbsp; Spanish (second language of the same degree; interviewed and hired in it)
       </p>
     </div>
   </section>
