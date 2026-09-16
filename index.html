@@ -19,7 +19,24 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Katia Fediunina · Growth, Product and Analytics</title>
+  <link rel="canonical" href="https://www.fediunina.com/">
   <meta name="description" content="Marketing, product and analytics in one person. 15+ years building consumer products in Brazil, LATAM, Europe and the CIS. I find what actually limits growth.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Katia Fediunina",
+    "url": "https://www.fediunina.com/",
+    "image": "https://www.fediunina.com/photo.jpeg",
+    "jobTitle": "Growth, Product and Analytics leader",
+    "email": "mailto:katia.fediunina@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Porto", "addressCountry": "PT" },
+    "sameAs": ["https://www.linkedin.com/in/ekaterinafedyunina/", "https://t.me/KatyaF"],
+    "knowsLanguage": ["en", "pt", "ru", "es"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Moscow Aviation Institute" }
+  }
+  </script>
 
   <!-- Link preview (LinkedIn, Slack, WhatsApp, X) -->
   <meta property="og:type" content="website">
@@ -72,7 +89,7 @@
       padding: 0 28px;
     }
 
-    section { padding: 96px 0; }
+    section { padding: 96px 0; scroll-margin-top: 12px; }
 
     /* ── Nav ── */
     nav {
@@ -111,6 +128,23 @@
       transition: background 0.2s, transform 0.15s;
     }
     .nav-cta:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-cv {
+      color: rgba(245,244,240,0.72);
+      border: 1.5px solid rgba(245,244,240,0.22);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .nav-cv:hover { color: var(--white); border-color: rgba(245,244,240,0.6); transform: translateY(-1px); }
 
     /* ── Secondary section nav ── */
     .section-nav {
@@ -199,6 +233,12 @@
       color: var(--white);
       font-weight: 600;
     }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+      letter-spacing: 0.01em;
+    }
 
     .role-switcher {
       display: flex;
@@ -222,6 +262,7 @@
     }
     .role-btn:hover { border-color: rgba(245,244,240,0.5); color: var(--white); }
     .role-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .role-btn .lbl-short { display: none; }
 
     /* ── Per-tab content ── */
     .tab-content { display: none; }
@@ -324,6 +365,7 @@
     .btn-ghost {
       color: var(--muted);
       font-size: 15px;
+      padding: 12px 0;
       text-decoration: underline;
       text-underline-offset: 3px;
       cursor: pointer;
@@ -571,7 +613,8 @@
       color: rgba(245,244,240,0.25);
       text-decoration: none;
     }
-    .t-li-badge.linked { color: #5B9BD5; }
+    .t-li-badge.linked { color: #5B9BD5; padding: 10px; margin: -10px; border-radius: 50%; transition: color 0.18s, background 0.18s; }
+    .t-li-badge.linked:hover { color: #fff; background: rgba(91,155,213,0.18); }
     .t-li-badge svg { width: 14px; height: 14px; }
 
     .t-quote {
@@ -812,6 +855,7 @@
       transition: border-color 0.2s, transform 0.15s;
     }
     .btn-outline:hover { border-color: rgba(245,244,240,0.65); transform: translateY(-2px); }
+    .contact-note { margin-top: 18px; font-size: 12px; color: rgba(245,244,240,0.35); text-align: center; }
 
     /* ── Footer ── */
     footer {
@@ -829,25 +873,35 @@
       transition: opacity 0.55s ease, transform 0.55s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
 
     /* ── Responsive ── */
     @media (max-width: 680px) {
       section { padding: 72px 0; }
 
-      /* Section nav wraps to two rows instead of scrolling sideways,
-         so a first-time visitor can see every section without guessing. */
-      html { scroll-padding-top: 132px; }
+      /* Section nav stays one row and scrolls sideways, so the fixed
+         header + nav never take more than ~100px of a phone screen. */
+      section { scroll-margin-top: 28px; }
       .section-nav-inner {
-        flex-wrap: wrap;
-        overflow-x: visible;
-        justify-content: center;
-        padding: 2px 12px 4px;
-        row-gap: 0;
+        padding: 0 12px;
+        -webkit-overflow-scrolling: touch;
+        mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent);
+        -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent);
       }
       .section-nav a {
-        font-size: 12.5px;
-        padding: 7px 11px;
+        font-size: 13px;
+        padding: 12px 11px;
       }
+      /* Reveal animation off on phones: content is visible the moment it is on screen. */
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .role-btn .lbl-long { display: none; }
+      .role-btn .lbl-short { display: inline; }
+      .nav-cv { padding: 8px 12px; }
+      .nav-cta { padding: 9px 16px; }
+      .hero-meta { line-height: 1.7; }
       #hero { padding: 120px 0 72px; min-height: auto !important; }
 
       .hero-intro { flex-direction: column; gap: 16px; }
@@ -897,8 +951,14 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-name">Katia Fediunina</a>
-    <a href="#contact" class="nav-cta">Let's talk</a>
+    <a href="#top" class="nav-name">Katia Fediunina</a>
+    <div class="nav-right">
+      <a href="Katia_Fediunina_CV.pdf" class="nav-cv" download="Katia_Fediunina_CV.pdf" onclick="if(window.gtag){gtag('event','cv_download',{location:'header'})}">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        CV
+      </a>
+      <a href="#contact" class="nav-cta">Let's talk</a>
+    </div>
   </nav>
 
   <nav class="section-nav" id="section-nav" aria-label="Page sections">
@@ -917,14 +977,14 @@
 
       <div class="hero-intro">
         <div class="hero-photo"><img src="photo.jpeg" alt="Katia Fediunina"></div>
-        <p class="hero-spine">I'm Katia. I've run acquisition, product growth, positioning and research myself, and the job underneath all of it is translation: from users, to what gets built, to numbers the business can act on. <strong>Four tabs, one person.</strong> Pick the lens that matches what you're hiring for.</p>
+        <p class="hero-spine">I'm Katia. I've run acquisition, product growth, positioning and research myself, and the job underneath all of it is translation: from users, to what gets built, to numbers the business can act on. <strong>Four tabs, one person.</strong> Pick the lens that matches what you're hiring for.<span class="hero-meta" style="display:block">Porto, Portugal &nbsp;·&nbsp; Remote, or hybrid in Grande Porto &nbsp;·&nbsp; Authorised to work in the EU</span></p>
       </div>
 
       <div class="role-switcher" role="tablist" aria-label="Role focus">
-        <button class="role-btn active" role="tab" aria-selected="true"  aria-controls="tab-marketing-leader"  data-tab="marketing-leader">Growth Leader</button>
-        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-product-growth"    data-tab="product-growth">Product and Positioning</button>
-        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-user-acquisition"  data-tab="user-acquisition">Performance Marketing</button>
-        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-consulting"        data-tab="consulting">Consulting</button>
+        <button class="role-btn active" role="tab" aria-selected="true"  aria-controls="tab-marketing-leader"  data-tab="marketing-leader"><span class="lbl-long">Growth Leader</span><span class="lbl-short">Growth Leader</span></button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-product-growth"    data-tab="product-growth"><span class="lbl-long">Product and Positioning</span><span class="lbl-short">Product</span></button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-user-acquisition"  data-tab="user-acquisition"><span class="lbl-long">Performance Marketing</span><span class="lbl-short">Performance</span></button>
+        <button class="role-btn"        role="tab" aria-selected="false" aria-controls="tab-consulting"        data-tab="consulting"><span class="lbl-long">Consulting</span><span class="lbl-short">Consulting</span></button>
       </div>
 
       <!-- Growth Leader (internal key: marketing-leader) -->
@@ -985,7 +1045,7 @@
         <div class="stats-row">
           <div class="stat-block">
             <div class="stat-num"><span class="accent">EUR 300K</span></div>
-            <div class="stat-label">A month at peak, across markets</div>
+            <div class="stat-label">Monthly ad budget at peak, across markets</div>
           </div>
           <div class="stat-block">
             <div class="stat-num"><span class="accent">10×</span></div>
@@ -1199,7 +1259,7 @@
 
         <div class="principle reveal">
           <h3>I do the work, and I hire when the work needs it.</h3>
-          <p>I have started as an individual contributor more than once and I am comfortable as a player-coach. I build functions without big headcount, manage when there are enough people to manage, and I do not hire to look senior. AI has moved that line further out: more gets done with fewer people and less time, and the judgement calls are still mine. This site is one small example — I built it myself, with AI.</p>
+          <p>I have started as an individual contributor more than once and I am comfortable as a player-coach. Early on I do a lot myself: it saves the time coordination costs, and often I do not yet know who to hire. That becomes clear when a channel starts running on its own — Meta is growing, needs attention every day, and my time for new experiments shrinks. Then I add someone, for work that will still exist when things change, not for an org chart. AI has moved that line further out: more gets done with fewer people and less time, and the judgement calls are still mine. This site is one small example — I built it myself, with AI.</p>
         </div>
 
         <div class="principle reveal">
@@ -1227,6 +1287,12 @@
   <section id="experience">
     <div class="container">
       <p class="section-label">Experience</p>
+
+      <div class="exp-block reveal">
+        <h3 class="exp-role">Independent: growth consulting and translation</h3>
+        <p class="exp-date">Jan 2026 to present · Porto</p>
+        <p class="exp-context">Growth and launch consulting for an early-stage company, and legal document translation between Russian and Portuguese. Consulting is a side line I intend to keep. The main thread is the search for the next full-time role: one product, two to three years, done properly rather than quickly.</p>
+      </div>
 
       <div class="exp-block reveal">
         <h3 class="exp-role">Head of Marketing, Flowwow Brasil</h3>
@@ -1363,6 +1429,9 @@
       <p class="languages reveal">
         <strong>Languages:</strong> English (first language of my translation degree; my working language since I started) &nbsp;·&nbsp; Portuguese (C1, DAPLE certified; worked in it daily) &nbsp;·&nbsp; Russian (native) &nbsp;·&nbsp; Spanish (second language of the same degree; interviewed and hired in it)
       </p>
+      <p class="languages reveal" style="margin-top:0;border-top:none;padding-top:14px">
+        <strong>Education:</strong> Moscow Aviation Institute &nbsp;·&nbsp; Master's, Economics &amp; Management (specialisation in entrepreneurship) &nbsp;·&nbsp; Master's, Linguistics &amp; Translation (English, Spanish)
+      </p>
     </div>
   </section>
 
@@ -1406,7 +1475,7 @@
 
       </div>
 
-      <p class="looking-format reveal">Open to full-time, fractional, and focused consulting. Remote-first, Western European time (Lisbon, London).</p>
+      <p class="looking-format reveal">Open to full-time, fractional, and focused consulting. Based in Porto, Portugal, with EU work authorisation. Remote, or hybrid within Grande Porto.</p>
     </div>
   </section>
 
@@ -1421,7 +1490,7 @@
   <!-- ── Contact ── -->
   <section id="contact">
     <div class="container">
-      <h2 class="contact-headline">Hiring for growth, product,<br>or market expansion?</h2>
+      <h2 class="contact-headline">Hiring for growth, product, or market expansion?</h2>
       <p class="contact-sub">Open to senior growth and product roles where the market or the line of business does not exist yet, plus fractional leadership and focused consulting sprints.</p>
       <div class="contact-btns">
         <a href="https://www.linkedin.com/in/ekaterinafedyunina/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
@@ -1432,11 +1501,16 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Telegram
         </a>
-        <a href="mailto:katia.fediunina@gmail.com" class="btn-outline">
+        <a href="mailto:katia.fediunina@gmail.com?subject=Hello%20from%20fediunina.com" class="btn-outline" id="email-btn" data-email="katia.fediunina@gmail.com">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Email
+          <span class="email-label">Email</span>
+        </a>
+        <a href="Katia_Fediunina_CV.pdf" class="btn-outline" download="Katia_Fediunina_CV.pdf" onclick="if(window.gtag){gtag('event','cv_download',{location:'contact'})}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download CV (PDF)
         </a>
       </div>
+      <p class="contact-note">Clicking Email also copies the address, in case no mail app opens.</p>
     </div>
   </section>
 
@@ -1481,9 +1555,17 @@
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const id = a.getAttribute('href').slice(1);
+        if (id === 'top') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'instant' });
+          history.replaceState(null, '', location.pathname);
+          return;
+        }
         const target = document.getElementById(id);
         if (!target) return;
         e.preventDefault();
+        // Anything inside the target section is visible immediately after a jump.
+        target.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
         target.scrollIntoView({ behavior: 'instant' });
         history.pushState(null, '', '#' + id);
       });
@@ -1498,23 +1580,38 @@
       sectionNav.classList.toggle('visible', !entries[0].isIntersecting);
     }, { threshold: 0.1 }).observe(document.getElementById('hero'));
 
-    // Highlight active section
-    const sNavSections = ['approach','testimonials','experience','skills','looking'];
-    new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          sNavLinks.forEach(a => a.classList.toggle('snav-active', a.getAttribute('href') === '#' + e.target.id));
-        }
+    // Highlight active section: the last section whose top has passed the nav.
+    // Includes #contact so the highlight clears at the end instead of sticking on "Skills".
+    const sNavSections = ['approach','testimonials','experience','skills','looking','contact']
+      .map(id => document.getElementById(id)).filter(Boolean);
+    let snavTick = false;
+    function updateActiveSection() {
+      snavTick = false;
+      const line = sectionNav.getBoundingClientRect().bottom + 80;
+      let current = null;
+      sNavSections.forEach(sec => { if (sec.getBoundingClientRect().top <= line) current = sec.id; });
+      if (current === 'contact') current = null;
+      sNavLinks.forEach(a => a.classList.toggle('snav-active', current !== null && a.getAttribute('href') === '#' + current));
+      // Keep the active link in view when the nav scrolls sideways on phones.
+      const act = sectionNav.querySelector('.snav-active');
+      if (act && act.scrollIntoViewIfNeeded) act.scrollIntoViewIfNeeded(false);
+    }
+    window.addEventListener('scroll', () => { if (!snavTick) { snavTick = true; requestAnimationFrame(updateActiveSection); } }, { passive: true });
+    updateActiveSection();
+
+    // ── Email: copy the address as well, for visitors with no mail client ──
+    const emailBtn = document.getElementById('email-btn');
+    if (emailBtn && navigator.clipboard) {
+      emailBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(emailBtn.dataset.email).then(() => {
+          const lbl = emailBtn.querySelector('.email-label');
+          if (!lbl) return;
+          const old = lbl.textContent;
+          lbl.textContent = 'Address copied';
+          setTimeout(() => { lbl.textContent = old; }, 1800);
+        }).catch(() => {});
       });
-    }, { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' })
-    .observe && sNavSections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) sNavLinks.forEach(a => a.classList.toggle('snav-active', a.getAttribute('href') === '#' + e.target.id));
-        });
-      }, { threshold: 0.2, rootMargin: '-10% 0px -55% 0px' }).observe(el);
-    });
+    }
 
     // ── Scroll reveal ──
     const observer = new IntersectionObserver(entries => {
@@ -1537,7 +1634,7 @@
         name: "Dmitry Gurinenko",
         role: "Co-founder, Ornament",
         source: "LinkedIn recommendation",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.linkedin.com/in/ekaterinafedyunina/details/recommendations/",
         photo: "dmitry.png",
         quote: "Katia combines strong product thinking, clear communication, and real ownership. She understands both the strategic direction of a product and the practical details needed to move it forward."
       },
@@ -1545,7 +1642,7 @@
         name: "Elina Sharifulina",
         role: "Chief Medical Officer, Ornament",
         source: "LinkedIn recommendation",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.linkedin.com/in/ekaterinafedyunina/details/recommendations/",
         photo: "elina.jpeg",
         quote: "Katia demonstrated professionalism, strategic thinking, and strong execution. She understood both the medical context and the patient journey, and translated complex health concepts into clear, engaging, user-friendly communication. She aligned marketing strategy with clinical priorities, product development, and user needs."
       },
@@ -1553,7 +1650,7 @@
         name: "Darina Zotova",
         role: "International PR Lead, Flowwow",
         source: "LinkedIn recommendation",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.linkedin.com/in/ekaterinafedyunina/details/recommendations/",
         photo: "darina.jpeg",
         quote: "Katia brought analytical thinking, deep market understanding, and strong business context to our PR work in Brazil. Her marketing and business insight helped turn PR ideas into stronger, data-backed stories."
       },
@@ -1561,7 +1658,7 @@
         name: "Daria Epifanova",
         role: "CPO, DocDoc",
         source: "LinkedIn recommendation",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.linkedin.com/in/ekaterinafedyunina/details/recommendations/",
         photo: "daria.jpeg",
         quote: "Katia is a rare leader in the field of marketing who truly understands how a product and marketing should work together effectively. She thoroughly analyzes users' values and goals and knows how to translate them into a cohesive, coordinated strategy where marketing efforts align with users' actual needs. In addition, Katia not only thinks strategically but also has the skills to translate strategy into concrete actions that deliver results. I would highly recommend her to any team looking for a marketing director with a strong approach to marketing and product, strategic skills, and a real ability to execute."
       },
@@ -1569,7 +1666,7 @@
         name: "Rory Hyde",
         role: "Content & SEO Manager, Storia Inc",
         source: "LinkedIn recommendation",
-        linkedinUrl: "",
+        linkedinUrl: "https://www.linkedin.com/in/ekaterinafedyunina/details/recommendations/",
         photo: "rory.jpeg",
         quote: "Katia is a great marketer, organiser and people manager. As a marketing professional, she's insightful and innovative. She is able to command respect and spark curiosity when pitching or presenting both internally and to clients/external partners. As a people manager, she is caring and inspiring. Katia has a can-do attitude and believes in constant learning. She is great at building and maintaining relationships, which makes her an asset to any team she is a part of."
       }
@@ -1616,6 +1713,10 @@
 
     renderTestimonials();
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    if (location.hash) {
+      const landed = document.getElementById(location.hash.slice(1));
+      if (landed) landed.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
   </script>
 
 </body>
